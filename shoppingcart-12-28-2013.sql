@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2013 at 01:09 AM
+-- Generation Time: Dec 29, 2013 at 02:14 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -31,7 +31,14 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'password');
 
 -- --------------------------------------------------------
 
@@ -43,7 +50,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'beverages'),
+(2, 'cakes');
 
 -- --------------------------------------------------------
 
@@ -63,7 +78,15 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `email` varchar(100) NOT NULL,
   `registered` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `forename`, `surname`, `add1`, `add2`, `add3`, `postcode`, `phone`, `email`, `registered`) VALUES
+(1, 'Craig', 'Tucker', '1234', 'Main Road', 'Seattle', '67815', '3516471452', 'ct@mail.com', 1),
+(2, 'Jane', 'Grady', '2876 Bastido Avenue', 'Division Road', 'Portland', '47123', '4729161527', 'jg@mail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -96,7 +119,15 @@ CREATE TABLE IF NOT EXISTS `logins` (
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `logins`
+--
+
+INSERT INTO `logins` (`id`, `customer_id`, `username`, `password`) VALUES
+(1, 1, 'grizzleguy', 'guygrizzle'),
+(2, 2, 'puppylover', 'loverpuppy');
 
 -- --------------------------------------------------------
 
@@ -145,7 +176,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   `image` varchar(30) NOT NULL,
   `price` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `cat_id`, `name`, `description`, `image`, `price`) VALUES
+(1, 1, 'Best Bags', 'A quality pack of tea bags.\r\n200 bags in each box.', '', 2.99),
+(2, 1, 'Best Orange Juice', 'One gallon of quality\r\nsqueezed orange juice.', 'bestorange-juice. jpg', 0.9);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
